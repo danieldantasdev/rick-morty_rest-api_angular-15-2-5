@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Character } from 'src/app/core/model/character/character';
 import { CharacterService } from 'src/app/core/services/character/character.service';
 
@@ -9,6 +10,8 @@ import { CharacterService } from 'src/app/core/services/character/character.serv
 })
 export class ListComponent {
   @Input() $characters: Character = new Character();
+
+  constructor(private _router: Router) {}
 
   getSeverity(status: string): 'danger' | 'success' | 'info' | 'warning' {
     switch (status) {
@@ -22,5 +25,9 @@ export class ListComponent {
         return 'info';
     }
     return 'danger';
+  }
+
+  onClick(e: any) {
+    this._router.navigate([`/characters/detail/${e}`]);
   }
 }

@@ -1,5 +1,5 @@
 import { Character } from '../../character/character';
-import { Episode } from '../../episode/episode';
+import { Episode } from '../episode';
 import { Origin } from '../../origin/origin';
 
 export class Results {

@@ -1,18 +1,20 @@
 <section id="l-section">
   <p-table
-    [value]="characters.results"
+    [value]="$characters.results"
     [paginator]="true"
     [rows]="5"
     [showCurrentPageReport]="true"
     [tableStyle]="{ 'min-width': '50rem' }"
     currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
-    [rowsPerPageOptions]="[5, 25, 50]"
+    [rowsPerPageOptions]="[5, 10, $characters.results.length]"
   >
     <ng-template pTemplate="header">
       <tr>
         <th style="width: 25%">Id</th>
         <th style="width: 25%">Name</th>
         <th style="width: 25%">Image</th>
+        <th style="width: 25%">Specie</th>
+        <th style="width: 25%">Status</th>
       </tr>
     </ng-template>
     <ng-template pTemplate="body" let-character>
@@ -20,6 +22,13 @@
         <td>{{ character.id }}</td>
         <td>{{ character.name }}</td>
         <td><img [src]="character.image" alt="" [width]="80" /></td>
+        <td>{{ character.species }}</td>
+        <td>
+          <p-tag
+            [value]="character.status"
+            [severity]="getSeverity(character.status)"
+          ></p-tag>
+        </td>
       </tr>
     </ng-template>
     <ng-template pTemplate="paginatorleft">

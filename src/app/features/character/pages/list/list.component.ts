@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Character } from 'src/app/core/model/character/character';
 import { CharacterService } from 'src/app/core/services/character/character.service';
 
@@ -7,22 +7,20 @@ import { CharacterService } from 'src/app/core/services/character/character.serv
   templateUrl: './list.component.html',
   styleUrls: ['./list.component.scss'],
 })
-export class ListComponent implements OnInit {
-  characters: Character = new Character();
-  first: string = '';
-  rows: string = '';
-  constructor(private characterService: CharacterService) {}
+export class ListComponent {
+  @Input() $characters: Character = new Character();
 
-  ngOnInit(): void {
-    this.getAllCharacters();
+  getSeverity(status: string): 'danger' | 'success' | 'info' | 'warning' {
+    switch (status) {
+      case 'Dead':
+        return 'danger';
+
+      case 'Alive':
+        return 'success';
+
+      case 'unknown':
+        return 'info';
+    }
+    return 'danger';
   }
-
-  getAllCharacters = () => {
-    this.characterService.getAllCharacters().subscribe({
-      next: (value) => {
-        this.characters = value;
-        this.first = value.info.next;
-      },
-    });
-  };
 }

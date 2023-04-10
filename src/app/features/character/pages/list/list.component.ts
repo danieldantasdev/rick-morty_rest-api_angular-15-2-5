@@ -16,7 +16,7 @@ export class ListComponent {
   }
 
   onClick(e: any) {
-    this._router.navigate([`/characters/detail/${e}`]);
+    this._router.navigate([`/character/detail/${e}`]);
   }
 
   onMouseEnter(e: any): void {

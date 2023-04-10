@@ -3,7 +3,7 @@ import {ActivatedRoute} from '@angular/router';
 import {Subscription} from 'rxjs';
 import {Results} from 'src/app/core/model/character/results/results';
 import {CharacterService} from 'src/app/core/services/character/character.service';
-import {Methods} from "../../../../core/utils/methods";
+import {Methods} from "../../../../core/utils/methods/methods";
 
 @Component({
   selector: 'app-detail',

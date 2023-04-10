@@ -1,7 +1,7 @@
 import {Component, Input} from '@angular/core';
 import {Router} from '@angular/router';
 import {Character} from 'src/app/core/model/character/character';
-import {Methods} from "../../../../core/utils/methods";
+import {Methods} from "../../../../core/utils/methods/methods";
 
 @Component({
   selector: 'app-list',

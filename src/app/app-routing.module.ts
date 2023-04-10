@@ -3,7 +3,7 @@ import {RouterModule, Routes} from '@angular/router';
 
 const routes: Routes = [
   {
-    path: '',
+    path: 'dashboard',
     loadChildren: () =>
       import('./features/dashboard/dashboard.module').then(
         (d) => d.DashboardModule
@@ -11,7 +11,7 @@ const routes: Routes = [
     title: 'dashboard'
   },
   {
-    path: '',
+    path: 'character',
     loadChildren: () =>
       import('./features/character/character.module').then(
         (c) => c.CharacterModule
@@ -19,13 +19,13 @@ const routes: Routes = [
     title: 'character'
   },
   {
-    path: '',
+    path: 'episode',
     loadChildren: () =>
       import('./features/episode/episode.module').then((e) => e.EpisodeModule),
     title: 'episode'
   },
   {
-    path: '',
+    path: 'location',
     loadChildren: () =>
       import('./features/location/location.module').then(
         (l) => l.LocationModule

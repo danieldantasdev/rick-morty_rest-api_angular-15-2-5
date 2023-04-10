@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import {CommonModule, NgOptimizedImage} from '@angular/common';
 
 import { CharacterRoutingModule } from './character-routing.module';
 import { ListComponent } from './pages/list/list.component';
@@ -9,6 +9,6 @@ import { DetailComponent } from './pages/detail/detail.component';
 
 @NgModule({
   declarations: [ListComponent, CharacterComponent, DetailComponent],
-  imports: [CommonModule, CharacterRoutingModule, PrimengModule],
+    imports: [CommonModule, CharacterRoutingModule, PrimengModule, NgOptimizedImage],
 })
 export class CharacterModule {}

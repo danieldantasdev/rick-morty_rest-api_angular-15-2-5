@@ -1,2 +1,23 @@
-{{ character?.id }}
-{{ character?.name }}
+<p-card
+  [header]="character?.id + ''"
+  [subheader]="character?.name ?? ''"
+  [style]="{ width: '360px' }"
+>
+  <ng-template pTemplate="header">
+    <img alt="Card" [src]="character?.image" />
+  </ng-template>
+  <p-tag
+    [value]="character!.status"
+    [severity]="methods.getSeverity(character!.status)"
+  ></p-tag>
+  <ng-template pTemplate="footer">
+    <p-button label="Save" icon="pi pi-check"></p-button>
+    <p-button
+      label="Voltar"
+      icon="pi pi-times"
+      styleClass="p-button-secondary"
+      [style]="{ 'margin-left': '.5em' }"
+      (click)="onBack()"
+    ></p-button>
+  </ng-template>
+</p-card>

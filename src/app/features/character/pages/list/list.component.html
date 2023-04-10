@@ -10,24 +10,25 @@
   >
     <ng-template pTemplate="header">
       <tr>
-        <th style="width: 25%">Id</th>
-        <th style="width: 25%">Name</th>
-        <th style="width: 25%">Image</th>
-        <th style="width: 25%">Specie</th>
-        <th style="width: 25%">Status</th>
-        <th style="width: 25%">Detail</th>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Image</th>
+        <th>Specie</th>
+        <th>Status</th>
+        <th>Detail</th>
       </tr>
     </ng-template>
     <ng-template pTemplate="body" let-character>
       <tr>
         <td>{{ character.id }}</td>
         <td>{{ character.name }}</td>
-        <td><img [src]="character.image" alt="" [width]="80" /></td>
+        <td><img [src]="character.image" alt="" [width]="80" id="image" (mouseenter)="onMouseEnter($event)"
+                 (mouseout)="onMouseOut($event)" (click)="onClick(character.id)"/></td>
         <td>{{ character.species }}</td>
         <td>
           <p-tag
             [value]="character.status"
-            [severity]="getSeverity(character.status)"
+            [severity]="methods.getSeverity(character.status)"
           ></p-tag>
         </td>
         <td>

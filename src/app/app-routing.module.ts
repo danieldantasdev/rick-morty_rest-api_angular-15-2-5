@@ -3,19 +3,19 @@ import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   {
-    path: 'characters',
+    path: '',
     loadChildren: () =>
       import('./features/character/character.module').then(
         (c) => c.CharacterModule
       ),
   },
   {
-    path: 'episodes',
+    path: '',
     loadChildren: () =>
       import('./features/episode/episode.module').then((e) => e.EpisodeModule),
   },
   {
-    path: 'locations',
+    path: '',
     loadChildren: () =>
       import('./features/location/location.module').then(
         (l) => l.LocationModule

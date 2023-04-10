@@ -21,7 +21,7 @@ export class CharacterComponent implements OnInit, OnDestroy {
     this.subscription.unsubscribe();
   }
 
-  getAllCharacters = () => {
+  getAllCharacters = ():void => {
     this.subscription = this._characterService.getAllCharacters().subscribe({
       next: (value) => {
         this.characters = value;

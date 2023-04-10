@@ -1,7 +1,7 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { Character } from 'src/app/core/model/character/character';
-import { CharacterService } from 'src/app/core/services/character/character.service';
+import {Component, Input} from '@angular/core';
+import {Router} from '@angular/router';
+import {Character} from 'src/app/core/model/character/character';
+import {Methods} from "../../../../core/utils/methods";
 
 @Component({
   selector: 'app-list',
@@ -10,24 +10,22 @@ import { CharacterService } from 'src/app/core/services/character/character.serv
 })
 export class ListComponent {
   @Input() $characters: Character = new Character();
+  methods: Methods = new Methods();
 
-  constructor(private _router: Router) {}
-
-  getSeverity(status: string): 'danger' | 'success' | 'info' | 'warning' {
-    switch (status) {
-      case 'Dead':
-        return 'danger';
-
-      case 'Alive':
-        return 'success';
-
-      case 'unknown':
-        return 'info';
-    }
-    return 'danger';
+  constructor(private _router: Router) {
   }
 
   onClick(e: any) {
     this._router.navigate([`/characters/detail/${e}`]);
+  }
+
+  onMouseEnter(e: any): void {
+    e.target.style.width = '100px'
+    e.target.style.cursor = 'pointer'
+    e.target.style.transition = '0.1s all linear'
+  }
+
+  onMouseOut(e: any): void {
+    e.target.style.width = '80px'
   }
 }
